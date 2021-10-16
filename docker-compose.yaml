@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  torproxy:
+    container_name: torproxy
+    build:
+      context: .
+      dockerfile: cmd/torproxy/Dockerfile
+    restart: always
+    ports:
+      - "9050:9050" # Tor proxy
+    volumes:
+      - ./cmd/torproxy/torrc:/etc/tor/torrc
